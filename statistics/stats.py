@@ -2,18 +2,11 @@
 import os
 from listtools import *
 from collections import namedtuple
+import files
 
 ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className")
 class ObjectiveCClass(ObjectiveCClass):
     pass
-
-def headers(directory="./"):
-    files = os.listdir(directory)
-    return filter(lambda f: f.endswith(".h"), files)
-
-def bodies(directory="./"):
-    files = os.listdir(directory)
-    return filter(lambda f: f.endswith(".m"), files)
 
 def findClassName(lines):
     for line in lines:
@@ -51,7 +44,7 @@ def findMostPublic(classes, top=3):
 
 
 def makeReport(directory="./"):
-    allHeaders = headers(directory)
+    allHeaders = files.headers(directory)
     classes = []
     for headerFile in allHeaders:
         classes.append(parseFile(directory + headerFile))

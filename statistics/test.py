@@ -1,5 +1,6 @@
 import unittest
 from stats import *
+from files import *
 
 class Tests(unittest.TestCase):
 
