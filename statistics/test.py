@@ -1,5 +1,5 @@
 import unittest
-from numberOfPublicMethods import *
+from stats import *
 
 class Tests(unittest.TestCase):
 
