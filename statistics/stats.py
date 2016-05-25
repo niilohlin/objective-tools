@@ -4,9 +4,11 @@ from listtools import *
 from collections import namedtuple
 import files
 
-ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className")
+ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className, sloc")
 class ObjectiveCClass(ObjectiveCClass):
     pass
+
+ObjectiveCMethod = namedtuple("ObjectiveCMethod", "numberOfParameters, methodName, decisionPoints, sloc")
 
 def findClassName(lines):
     for line in lines:
