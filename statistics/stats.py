@@ -4,7 +4,7 @@ from listtools import *
 from collections import namedtuple
 import files
 
-ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className, sloc, semicolons")
+ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className, sloc, semicolons, imports, imported")
 class ObjectiveCClass(ObjectiveCClass):
     def parseFromString(self, string):
         pass
