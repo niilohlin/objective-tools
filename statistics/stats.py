@@ -4,12 +4,17 @@ from listtools import *
 from collections import namedtuple
 import files
 
-ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className, sloc")
+ObjectiveCClass = namedtuple("ObjectiveCClass", "publicMethods, className, sloc, semicolons")
 class ObjectiveCClass(ObjectiveCClass):
-    pass
+    def parseFromString(self, string):
+        pass
 
-ObjectiveCMethod = namedtuple("ObjectiveCMethod", "numberOfParameters, methodName, decisionPoints, sloc")
+ObjectiveCMethod = namedtuple("ObjectiveCMethod", "numberOfParameters, methodName, decisionPoints, sloc, semicolons")
 
+class ObjectiveCCMethod(ObjectiveCMethod):
+    def parseFromString(self, string):
+        pass
+    
 def findClassName(lines):
     for line in lines:
         if "@interface" in line:
