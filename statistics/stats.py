@@ -42,6 +42,12 @@ def subStringOfMatching(opening, closing, string):
                 return string[startIndex:endIndex]
     return string
 
+def numberOfDecisionPoints(string):
+    keywords = "if while for && ||".split(" ")
+    count = 0
+    for keyword in keywords:
+        count += string.count(keyword)
+    return count;
 
 def findMethods(string):
     pass
