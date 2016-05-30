@@ -21,6 +21,32 @@ def findClassName(lines):
             return line.split(" ")[1]
     return None
 
+def subStringOfMatching(opening, closing, string):
+    startIndex = 0
+    endIndex = 0
+    numberOfOpenings = 0
+    hasFound = False
+
+    for index, character in enumerate(string):
+        if character == opening:
+            numberOfOpenings += 1
+            if not hasFound:
+                startIndex = index + 1
+                hasFound = True
+        if character == closing:
+            numberOfOpenings -= 1
+
+        if numberOfOpenings == 0:
+            endIndex = index
+            if hasFound:
+                return string[startIndex:endIndex]
+    return string
+
+
+def findMethods(string):
+    pass
+
+
 def getLinesBetween(start, end, lines):
     return takeWhile(lambda line: not line.startswith(end) ,dropWhile(lambda line: not line.startswith(start), lines))
 

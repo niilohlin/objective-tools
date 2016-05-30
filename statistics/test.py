@@ -27,6 +27,8 @@ class Tests(unittest.TestCase):
         classes = Tests.listOfOCClasses()
         self.assertEqual(findMostPublic(classes, 1), [ObjectiveCClass(publicMethods=5, className="TestClass5")])
 
+    def test_subString(self):
+        self.assertEqual(subStringOfMatching('{', '}', "kala{sKu{}ng}en"), "sKu{}ng")
 
 
 
