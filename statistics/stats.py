@@ -71,7 +71,13 @@ def parseFile(fileName):
     linesWithoutNewline = filter(lambda line: line != "\n", lines)
     className = findClassName(linesWithoutNewline)
     numberOfProperties = countPublicProperties(linesWithoutNewline)
-    return ObjectiveCClass(publicMethods=numberOfProperties, className=className)
+    return ObjectiveCClass(publicMethods=numberOfProperties,
+                                    className=className,
+                                    sloc=None,
+                                    semicolons=None,
+                                    imports=None,
+                                    imported=None,
+                                    )
 
 def calculateAveragePublic(classes):
     if len(classes) == 0:
