@@ -12,8 +12,10 @@ class ObjectiveCClass(ObjectiveCClass):
 ObjectiveCMethod = namedtuple("ObjectiveCMethod", "numberOfParameters, methodName, decisionPoints, sloc, semicolons")
 
 class ObjectiveCCMethod(ObjectiveCMethod):
+    
     def parseFromString(self, string):
         pass
+    
     
 def findClassName(lines):
     for line in lines:
@@ -50,8 +52,7 @@ def numberOfDecisionPoints(string):
     return count;
 
 def findMethods(string):
-    pass
-
+    return map(lambda substr: substr.split("\n+"), string.split("\n-"))
 
 def getLinesBetween(start, end, lines):
     return takeWhile(lambda line: not line.startswith(end) ,dropWhile(lambda line: not line.startswith(start), lines))
